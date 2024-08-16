@@ -1,8 +1,8 @@
 extends Node
 ## Please Update
-const SAVE_PATH = "user://pneumagame.save"
-const PROGRESS_PATH = "user://pneumagame_progress.save"
-const PASSWORD = "pneuma"
+const SAVE_PATH = "user://GMTKjam.save"
+const PROGRESS_PATH = "user://GMTKjam_progress.save"
+const PASSWORD = "is_password"
 # -------------
 var example_save
 var wins
