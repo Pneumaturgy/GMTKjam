@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=3 format=3 uid="uid://cwurvkxkotcjx"]
+
+[ext_resource type="PackedScene" uid="uid://cv7hllj8k4fqe" path="res://Scenes/Env.tscn" id="1_gtmph"]
+[ext_resource type="PackedScene" uid="uid://b77de4dk35ss5" path="res://Scenes/Trinks/BlankTrink.tscn" id="2_iyvuf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Env" parent="." instance=ExtResource("1_gtmph")]
+
+[node name="Trink" parent="." instance=ExtResource("2_iyvuf")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

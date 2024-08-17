@@ -7,6 +7,13 @@ const PASSWORD = "is_password"
 var example_save
 var wins
 var losses
+var all_trinks = {
+	blank = preload("res://Scenes/Trinks/BlankTrink.tscn"),
+	shield = preload("res://Scenes/Trinks/ShieldTrink.tscn"),
+	spike = preload("res://Scenes/Trinks/SpikeTrink.tscn")
+}
+
+
 
 
 ## A new blank save that saves generic data
