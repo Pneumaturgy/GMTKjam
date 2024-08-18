@@ -3,12 +3,15 @@ class_name Trink
 
 
 var no_spawn_chance = 50
+var no_spawn_growth_factor = 1.5 # 20%
 var rarity : float
 var size : int
+
+
 var siblings = {
-	0: null,
-	1: null,
-	2: null
+	0: null, # This is the right side
+	1: null, # This is the left side
+	2: null # This is the base, or bottom side
 }
 
 
@@ -18,10 +21,36 @@ func _ready():
 		var new_trink_type = choose_new_trink(no_spawn_chance)
 		if new_trink_type == null: continue # No new trinks on this side
 		var new_trink = load(new_trink_type).instantiate()
-		new_trink.no_spawn_chance = no_spawn_chance * 2
+		new_trink.no_spawn_chance = no_spawn_chance * no_spawn_growth_factor
 		new_trink.transform = get_new_transform(side)
+		bla(new_trink)
 		add_child(new_trink)
 		siblings[side] = new_trink
+
+
+func bla(new_trink):
+	for child in new_trink.get_children():
+		if child.name == "TrinkBody":
+			var sides = child.get_children()
+			for side in sides:
+				var a_coords = side.shape.a
+				var b_coords = side.shape.b
+				if (a_coords.x > 0 && b_coords.x > 0):
+					print('Thats the side 0 or right')
+					print(getMiddlePoint(a_coords, b_coords))
+					print(child.global_position)
+				elif (a_coords.x < 0 && b_coords.x < 0):
+					print('Thats the side 1 or left')
+					print(getMiddlePoint(a_coords, b_coords))
+					print(child.global_position)
+				else:
+					print('Thats the side 2 or bottom')
+					print(getMiddlePoint(a_coords, b_coords))
+					print(child.global_position)
+
+
+func getMiddlePoint(a_coords, b_coords):
+	return (a_coords + b_coords) / 2
 
 
 func choose_new_trink(no_spawn_chance):
