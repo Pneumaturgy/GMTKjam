@@ -25,8 +25,9 @@ var total_spawn_chance : float
 func _ready():
 	for trink in all_trinks:
 		total_spawn_chance += all_trinks[trink]
-## A new blank save that saves generic data
 
+
+## A new blank save that saves generic data
 func new_save():
 	return {
 		"ExampleSave" = 0
