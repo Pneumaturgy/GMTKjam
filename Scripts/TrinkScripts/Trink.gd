@@ -16,41 +16,18 @@ var siblings = {
 
 
 func _ready():
-	for side in siblings:
-		if siblings[side] != null: continue # Don't replace the parent trink
+	for father_side in siblings:
+		if siblings[father_side] != null: continue # Don't replace the parent trink
 		var new_trink_type = choose_new_trink(no_spawn_chance)
 		if new_trink_type == null: continue # No new trinks on this side
 		var new_trink = load(new_trink_type).instantiate()
 		new_trink.no_spawn_chance = no_spawn_chance * no_spawn_growth_factor
-		new_trink.transform = get_new_transform(side)
-		bla(new_trink)
+		# TODO Need to SET on the new_trink.siblings the father on the correct side
+		# So, for instance: new_trink.siblings[get_sibling_side(father_side)] = self
+		# TODO Need to fix the get new transform function (don't hardcode but calculate the coordinates)
+		new_trink.transform = get_new_transform(father_side)
 		add_child(new_trink)
-		siblings[side] = new_trink
-
-
-func bla(new_trink):
-	for child in new_trink.get_children():
-		if child.name == "TrinkBody":
-			var sides = child.get_children()
-			for side in sides:
-				var a_coords = side.shape.a
-				var b_coords = side.shape.b
-				if (a_coords.x > 0 && b_coords.x > 0):
-					print('Thats the side 0 or right')
-					print(getMiddlePoint(a_coords, b_coords))
-					print(child.global_position)
-				elif (a_coords.x < 0 && b_coords.x < 0):
-					print('Thats the side 1 or left')
-					print(getMiddlePoint(a_coords, b_coords))
-					print(child.global_position)
-				else:
-					print('Thats the side 2 or bottom')
-					print(getMiddlePoint(a_coords, b_coords))
-					print(child.global_position)
-
-
-func getMiddlePoint(a_coords, b_coords):
-	return (a_coords + b_coords) / 2
+		siblings[father_side] = new_trink
 
 
 func choose_new_trink(no_spawn_chance):
