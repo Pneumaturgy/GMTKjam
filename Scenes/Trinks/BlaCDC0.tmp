@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bisck8oiqvfm2"]
+[gd_scene load_steps=6 format=3 uid="uid://b77de4dk35ss5"]
 
-[ext_resource type="Script" path="res://Scripts/TrinkScripts/Trink.gd" id="1_tcjk6"]
-[ext_resource type="Texture2D" uid="uid://cjaehr535c1re" path="res://Assets/2D/Sprites/Trinks/Trink_-_Shield.png" id="2_hgoig"]
+[ext_resource type="Script" path="res://Scripts/Trink.gd" id="1_sobhh"]
+[ext_resource type="Texture2D" uid="uid://c64d2ct5sqhm6" path="res://Assets/2D/Sprites/Trinks/Trink_-_Triangle.png" id="2_nwqs6"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uryh6"]
 a = Vector2(9, 4)
@@ -15,12 +15,12 @@ b = Vector2(-9, 4)
 a = Vector2(8, 6)
 b = Vector2(-8, 6)
 
-[node name="ShieldTrink" type="Node2D"]
-script = ExtResource("1_tcjk6")
+[node name="BlankTrink" type="Node2D"]
+script = ExtResource("1_sobhh")
 
 [node name="TrinkImage" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_hgoig")
+texture = ExtResource("2_nwqs6")
 
 [node name="TrinkBody" type="StaticBody2D" parent="."]
 

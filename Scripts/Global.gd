@@ -1,5 +1,4 @@
 extends Node
-## Please Update
 const SAVE_PATH = "user://GMTKjam.save"
 const PROGRESS_PATH = "user://GMTKjam_progress.save"
 const PASSWORD = "is_password"
@@ -7,16 +6,27 @@ const PASSWORD = "is_password"
 var example_save
 var wins
 var losses
+
+#var all_trinks = [
+	#preload("res://Scripts/TrinkResources/BlankTrink.tres"),
+	#preload("res://Scripts/TrinkResources/ShieldTrink.tres"),
+	#preload("res://Scripts/TrinkResources/SpikeTrink.tres")
+#]
+
 var all_trinks = {
-	blank = preload("res://Scenes/Trinks/BlankTrink.tscn"),
-	shield = preload("res://Scenes/Trinks/ShieldTrink.tscn"),
-	spike = preload("res://Scenes/Trinks/SpikeTrink.tscn")
+	"res://Scenes/Trinks/BlankTrink.tscn" : 50.0,
+	"res://Scenes/Trinks/ShieldTrink.tscn" : 23.0,
+	"res://Scenes/Trinks/SpikeTrink.tscn" : 10.0
 }
 
 
+var total_spawn_chance : float
 
-
+func _ready():
+	for trink in all_trinks:
+		total_spawn_chance += all_trinks[trink]
 ## A new blank save that saves generic data
+
 func new_save():
 	return {
 		"ExampleSave" = 0
