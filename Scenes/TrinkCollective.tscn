@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0nkg0fay2t1"]
+
+[ext_resource type="Script" path="res://Scripts/TrinkScripts/Trink.gd" id="1_q8kwy"]
+
+[node name="TrinkCollective" type="Node2D"]
+script = ExtResource("1_q8kwy")

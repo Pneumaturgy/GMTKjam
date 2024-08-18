@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nf58k3kh5tts"]
+
+[ext_resource type="Texture2D" uid="uid://c64d2ct5sqhm6" path="res://Assets/2D/Sprites/Trinks/Trink_-_Triangle.png" id="1_7y1r3"]
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/player.gd" id="1_yktyi"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_yktyi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7y1r3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-207, 121, 1, -241, 208, 121)
+
+[node name="Camera2D" type="Camera2D" parent="."]

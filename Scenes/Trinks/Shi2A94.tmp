@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bisck8oiqvfm2"]
+
+[ext_resource type="Texture2D" uid="uid://cjaehr535c1re" path="res://Assets/2D/Sprites/Trinks/Trink_-_Shield.png" id="2_hgoig"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uryh6"]
+a = Vector2(9, 4)
+b = Vector2(1, -10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bymwr"]
+a = Vector2(-1, -10)
+b = Vector2(-9, 4)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oflbk"]
+a = Vector2(8, 6)
+b = Vector2(-8, 6)
+
+[node name="ShieldTrink" type="Node2D"]
+
+[node name="TrinkImage" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_hgoig")
+
+[node name="TrinkBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrinkBody"]
+shape = SubResource("SegmentShape2D_uryh6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrinkBody"]
+shape = SubResource("SegmentShape2D_bymwr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TrinkBody"]
+shape = SubResource("SegmentShape2D_oflbk")
