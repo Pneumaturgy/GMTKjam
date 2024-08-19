@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=3 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="PackedScene" uid="uid://cv7hllj8k4fqe" path="res://Scenes/Env.tscn" id="1_gtmph"]
 [ext_resource type="PackedScene" uid="uid://b77de4dk35ss5" path="res://Scenes/Trinks/BlankTrink.tscn" id="2_iyvuf"]
-[ext_resource type="PackedScene" uid="uid://nf58k3kh5tts" path="res://Scenes/Player.tscn" id="3_oqkxt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,9 +14,6 @@ grow_vertical = 2
 [node name="Env" parent="." instance=ExtResource("1_gtmph")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
 
 [node name="BlankTrink" parent="." instance=ExtResource("2_iyvuf")]
-
-[node name="Player" parent="." instance=ExtResource("3_oqkxt")]
-visible = false

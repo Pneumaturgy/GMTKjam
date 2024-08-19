@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cujjued3746ic"]
 
-[ext_resource type="Script" path="res://Scripts/TrinkScripts/Trink.gd" id="1_4aghp"]
+[ext_resource type="Script" path="res://Scripts/TrinkScripts/HazardTrink.gd" id="1_4lavo"]
 [ext_resource type="Texture2D" uid="uid://bvu2w863yu07x" path="res://Assets/2D/Sprites/Trinks/Trink_-_Spikes.png" id="2_m2em2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uryh6"]
@@ -16,13 +16,30 @@ a = Vector2(8, 6)
 b = Vector2(-8, 6)
 
 [node name="SpikeTrink" type="Node2D"]
-script = ExtResource("1_4aghp")
+script = ExtResource("1_4lavo")
 
 [node name="TrinkImage" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_m2em2")
 
-[node name="TrinkBody" type="StaticBody2D" parent="."]
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 30.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="TrinkBody" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_uryh6")

@@ -6,7 +6,7 @@ const PASSWORD = "is_password"
 var example_save
 var wins
 var losses
-
+var index = 0
 #var all_trinks = [
 	#preload("res://Scripts/TrinkResources/BlankTrink.tres"),
 	#preload("res://Scripts/TrinkResources/ShieldTrink.tres"),
