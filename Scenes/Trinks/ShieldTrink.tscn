@@ -1,25 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bisck8oiqvfm2"]
+[gd_scene load_steps=7 format=3 uid="uid://bisck8oiqvfm2"]
 
 [ext_resource type="Script" path="res://Scripts/TrinkScripts/HazardTrink.gd" id="1_busxm"]
 [ext_resource type="Texture2D" uid="uid://cjaehr535c1re" path="res://Assets/2D/Sprites/Trinks/Trink_-_Shield.png" id="2_hgoig"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_uryh6"]
-a = Vector2(9, 4)
-b = Vector2(1, -10)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pnn1e"]
+a = Vector2(200, 115)
+b = Vector2(0, -230)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bymwr"]
-a = Vector2(-1, -10)
-b = Vector2(-9, 4)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_16umv"]
+a = Vector2(0, -230)
+b = Vector2(-200, 115)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_oflbk"]
-a = Vector2(8, 6)
-b = Vector2(-8, 6)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jw1dv"]
+a = Vector2(200, 120)
+b = Vector2(-200, 120)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfl03"]
+radius = 115.0
 
 [node name="ShieldTrink" type="Node2D"]
 script = ExtResource("1_busxm")
 
 [node name="TrinkImage" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_hgoig")
 
 [node name="Label" type="Label" parent="."]
@@ -42,10 +44,31 @@ text = "0"
 [node name="TrinkBody" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrinkBody"]
-shape = SubResource("SegmentShape2D_uryh6")
+shape = SubResource("SegmentShape2D_pnn1e")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="TrinkBody"]
+shape = SubResource("SegmentShape2D_16umv")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TrinkBody"]
-shape = SubResource("SegmentShape2D_bymwr")
+shape = SubResource("SegmentShape2D_jw1dv")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="TrinkBody"]
-shape = SubResource("SegmentShape2D_oflbk")
+[node name="RightSlot" type="Area2D" parent="."]
+position = Vector2(240, -115)
+rotation = 1.0472
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSlot"]
+shape = SubResource("CircleShape2D_xfl03")
+
+[node name="LeftSlot" type="Area2D" parent="."]
+position = Vector2(-240, -114)
+rotation = 2.0944
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSlot"]
+shape = SubResource("CircleShape2D_xfl03")
+
+[node name="DownSlot" type="Area2D" parent="."]
+position = Vector2(0, 260)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownSlot"]
+shape = SubResource("CircleShape2D_xfl03")
