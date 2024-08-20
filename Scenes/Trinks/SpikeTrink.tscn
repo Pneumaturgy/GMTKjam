@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cujjued3746ic"]
+[gd_scene load_steps=5 format=3 uid="uid://cujjued3746ic"]
 
 [ext_resource type="Script" path="res://Scripts/TrinkScripts/HazardTrink.gd" id="1_4lavo"]
 [ext_resource type="Texture2D" uid="uid://bvu2w863yu07x" path="res://Assets/2D/Sprites/Trinks/Trink_-_Spikes.png" id="2_m2em2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bkwdl"]
-radius = 115.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mtqgw"]
+a = Vector2(200, 120)
+b = Vector2(0, -200)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_32dhi"]
+a = Vector2(-200, 120)
+b = Vector2(0, -200)
 
 [node name="SpikeTrink" type="Node2D" groups=["trink"]]
 script = ExtResource("1_4lavo")
@@ -32,6 +37,9 @@ text = "0"
 [node name="DetectionSlot" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionSlot"]
-shape = SubResource("CircleShape2D_bkwdl")
+shape = SubResource("SegmentShape2D_mtqgw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectionSlot"]
+shape = SubResource("SegmentShape2D_32dhi")
 
 [connection signal="area_entered" from="DetectionSlot" to="." method="_on_detection_slot_area_entered"]

@@ -40,8 +40,8 @@ func _ready():
 			down_slot.queue_free()
 			continue # If a child trink, don't spawn anything directly below
 		if sides[side] != null: 
-			get_slot(side).monitoring = false
-			get_slot(side).monitorable = false
+			#get_slot(side).monitoring = false
+			#get_slot(side).monitorable = false
 			continue # Don't replace an existing trink
 		if get_slot(side).has_overlapping_bodies(): continue #skip this side if it's colliding
 
@@ -56,8 +56,8 @@ func _ready():
 		if new_trink_type != "res://Scenes/Trinks/BlankTrink.tscn":
 			new_trink.can_trink = false # if it's a hazard, it shouldn't spawn anything else after it
 		else:
-			get_slot(side).monitoring = false
-			get_slot(side).monitorable = false
+			#get_slot(side).monitoring = false
+			#get_slot(side).monitorable = false
 			new_trink.no_spawn_chance = no_spawn_chance * no_spawn_growth_factor
 		# update the spawn chance
 		new_trink.sides[get_sibling_side(side)] = self 
@@ -98,31 +98,3 @@ func get_sibling_side(side):
 	elif side == 2:
 		return 2
 	
-
-
-#func _on_right_slot_area_entered(area):
-	#Global.connect_to.emit(area,right_slot)
-
-
-
-#func _on_left_slot_area_entered(area):
-	#Global.connect_to.emit(area,left_slot)
-
-
-
-
-#func new_child(area,slot):
-	#var target_trink
-	#if area.get_child(1):
-		#target_trink = area.get_child(1)
-	#elif target_trink == null:
-		#target_trink = area.get_parent()
-		#
-	#Global.connected.emit()
-	#
-	#if target_trink.down_slot:
-		#target_trink.down_slot.queue_free()
-	#target_trink.call_deferred("reparent",slot)
-	#if target_trink != get_node("Player"):
-		#target_trink.belongs_to_player = true
-	#slot.set_deferred("monitoring",false)
