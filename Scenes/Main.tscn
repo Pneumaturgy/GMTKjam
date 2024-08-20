@@ -16,19 +16,19 @@ grow_vertical = 2
 [node name="Env" parent="." instance=ExtResource("1_gtmph")]
 
 [node name="BlankTrink" parent="." instance=ExtResource("2_iyvuf")]
-position = Vector2(733, -129)
+position = Vector2(2940, -1157)
 
 [node name="BlankTrink2" parent="." instance=ExtResource("2_iyvuf")]
-position = Vector2(-1327, -663)
+position = Vector2(-2395, -1036)
 
 [node name="BlankTrink3" parent="." instance=ExtResource("2_iyvuf")]
-position = Vector2(-674, 668)
+position = Vector2(-2619, 1595)
 
 [node name="BlankTrink4" parent="." instance=ExtResource("2_iyvuf")]
-position = Vector2(182, -1112)
+position = Vector2(-141, -2574)
 
 [node name="BlankTrink5" parent="." instance=ExtResource("2_iyvuf")]
-position = Vector2(724, 837)
+position = Vector2(1833, 1684)
 
 [node name="Player" parent="." instance=ExtResource("3_kssp2")]
 

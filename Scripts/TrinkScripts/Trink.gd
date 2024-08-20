@@ -45,7 +45,7 @@ func _ready():
 		var new_trink_type = choose_new_trink(no_spawn_chance)
 		if new_trink_type == null: continue # No new trinks on this side
 		#print('new trink type: ', new_trink_type)
-		await get_tree().create_timer(.25).timeout
+		#await get_tree().create_timer(.25).timeout
 		
 		## Load the trink
 		var new_trink = load(new_trink_type).instantiate()
@@ -57,14 +57,14 @@ func _ready():
 		new_trink.sides[get_sibling_side(side)] = self 
 		# I set myself as one of the existing siblings for the next trink
 		print('new trink type: ', new_trink, " new spawn chance: ", new_trink.no_spawn_chance)
-		await get_tree().create_timer(.25).timeout
+		#await get_tree().create_timer(.25).timeout
 		
 		## Position the Trink
 		#var new_transform = get_new_transform(side)
 		#new_trink.position = new_transform[0]
 		#new_trink.rotation = deg_to_rad(new_transform[1])
 		#print('new trink transform: ', new_trink.position, " ", new_trink.rotation)
-		await get_tree().create_timer(.25).timeout
+		#await get_tree().create_timer(.25).timeout
 		
 		## Update variables
 		label.text = (str(Global.index))
@@ -72,8 +72,9 @@ func _ready():
 		sides[side] = new_trink
 		new_trink.parent_trink = true
 		get_slot(side).add_child(new_trink)
+		get_slot(side).monitoring = false #disabling the area to disable collision
 		#print("new trink! ", new_trink)
-		await get_tree().create_timer(.25).timeout
+		#await get_tree().create_timer(.25).timeout
 		
 
 func choose_new_trink(chance):
