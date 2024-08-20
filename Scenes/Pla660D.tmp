@@ -8,7 +8,9 @@ radius = 115.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yktyi")
-rotation_speed = 480
+joypad_dead_zone = null
+speed = null
+rotation_speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7y1r3")
