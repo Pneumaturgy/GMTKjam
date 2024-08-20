@@ -38,9 +38,12 @@ folder_colors={
 "res://Assets/": "green",
 "res://Scenes/": "teal",
 "res://Scripts/": "blue",
-"res://Tests/": "purple",
-"res://addons/": "yellow"
+"res://Tests/": "purple"
 }
+
+[global_group]
+
+trink=""
 
 [input]
 

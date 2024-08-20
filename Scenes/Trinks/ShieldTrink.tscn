@@ -15,7 +15,7 @@ b = Vector2(-200, 115)
 a = Vector2(200, 120)
 b = Vector2(-200, 120)
 
-[node name="ShieldTrink" type="Node2D"]
+[node name="ShieldTrink" type="Node2D" groups=["trink"]]
 script = ExtResource("1_busxm")
 
 [node name="TrinkImage" type="Sprite2D" parent="."]
