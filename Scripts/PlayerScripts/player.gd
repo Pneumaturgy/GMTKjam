@@ -62,23 +62,33 @@ func _on_down_slot_area_entered(area):
 
 
 func new_child(area,slot):
+	slot.set_deferred("monitoring", false)
 	var target_trink = area.get_parent()
+	
 	if target_trink == get_tree().root:
 		target_trink = area
-	print("target: ", target_trink)
-	var parent_trink = target_trink.get_parent().get_parent()
-	if parent_trink and parent_trink != get_tree().root:
-		parent_trink.remove_child(target_trink)
 		target_trink.call_deferred("reparent",slot)
 		target_trink.right_slot.set_deferred("monitoring", false)
 		target_trink.left_slot.set_deferred("monitoring", false)
 		target_trink.down_slot.set_deferred("monitoring", false)
-		parent_trink.right_slot.set_deferred("monitoring", false)
-		parent_trink.left_slot.set_deferred("monitoring", false)
-		parent_trink.down_slot.set_deferred("monitoring", false)
-		slot.set_deferred("monitoring", false)
-	print("parent: ", parent_trink)
-	
+	else:
+		var parent_trink = target_trink.get_parent().get_parent()
+		print("parent: ", parent_trink)
+		if parent_trink == get_tree().root:
+			parent_trink = target_trink
+		if parent_trink and parent_trink != get_node("Player"):
+			parent_trink.remove_child(target_trink)
+			target_trink.call_deferred("reparent",slot)
+			target_trink.right_slot.set_deferred("monitoring", false)
+			target_trink.left_slot.set_deferred("monitoring", false)
+			target_trink.down_slot.set_deferred("monitoring", false)
+			parent_trink.right_slot.set_deferred("monitoring", false)
+			parent_trink.left_slot.set_deferred("monitoring", false)
+			parent_trink.down_slot.set_deferred("monitoring", false)
+			#slot.set_deferred("monitoring", false)
+		
+		await get_tree().create_timer(.25).timeout
+		slot.set_deferred("monitoring", true)
 
 	#var target_trink = area.get_parent().get_parent().get_parent()
 	#if target_trink == get_tree().root:
@@ -121,3 +131,15 @@ func new_child(area,slot):
 		#target_trink.right_slot.set_deferred("monitoring", false)
 		#target_trink.left_slot.set_deferred("monitoring", false)
 		#target_trink.down_slot.set_deferred("monitoring", false)
+
+
+#func _on_right_slot_area_exited(area):
+	#right_slot.set_deferred("monitoring", true)
+#
+#
+#func _on_left_slot_area_exited(area):
+	#left_slot.set_deferred("monitoring", true)
+#
+#
+#func _on_down_slot_area_exited(area):
+	#down_slot.set_deferred("monitoring", true)
