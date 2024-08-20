@@ -18,6 +18,18 @@ grow_vertical = 2
 [node name="BlankTrink" parent="." instance=ExtResource("2_iyvuf")]
 position = Vector2(733, -129)
 
+[node name="BlankTrink2" parent="." instance=ExtResource("2_iyvuf")]
+position = Vector2(-1327, -663)
+
+[node name="BlankTrink3" parent="." instance=ExtResource("2_iyvuf")]
+position = Vector2(-674, 668)
+
+[node name="BlankTrink4" parent="." instance=ExtResource("2_iyvuf")]
+position = Vector2(182, -1112)
+
+[node name="BlankTrink5" parent="." instance=ExtResource("2_iyvuf")]
+position = Vector2(724, 837)
+
 [node name="Player" parent="." instance=ExtResource("3_kssp2")]
 
 [node name="PlayerCamera" parent="." instance=ExtResource("4_idtj0")]

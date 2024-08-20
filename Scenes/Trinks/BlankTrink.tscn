@@ -55,21 +55,21 @@ shape = SubResource("SegmentShape2D_lwkey")
 shape = SubResource("SegmentShape2D_5o5aj")
 
 [node name="RightSlot" type="Area2D" parent="."]
-position = Vector2(240, -115)
+position = Vector2(240, -120)
 rotation = 1.0472
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightSlot"]
 shape = SubResource("CircleShape2D_4je2n")
 
 [node name="LeftSlot" type="Area2D" parent="."]
-position = Vector2(-240, -114)
+position = Vector2(-240, -120)
 rotation = -1.0472
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSlot"]
 shape = SubResource("CircleShape2D_4je2n")
 
 [node name="DownSlot" type="Area2D" parent="."]
-position = Vector2(0, 260)
+position = Vector2(0, 270)
 rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownSlot"]
