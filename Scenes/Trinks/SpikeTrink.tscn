@@ -42,9 +42,12 @@ text = "0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_uryh6")
+disabled = true
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_bymwr")
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_oflbk")
+disabled = true

@@ -13,7 +13,7 @@ config_version=5
 config/name="GMTK Game Jam | 16th Aug 2024"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://Assets/2D/Sprites/pneumaturgylogo_new_180x.png"
+config/icon="res://Assets/2D/Sprites/logo_Silk.png"
 
 [autoload]
 

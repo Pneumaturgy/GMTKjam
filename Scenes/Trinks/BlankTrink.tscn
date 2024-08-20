@@ -36,7 +36,6 @@ offset_right = 24.0
 offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.07, 0.07)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 43
 text = "0"
@@ -47,12 +46,15 @@ vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_3fmpg")
+disabled = true
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_lwkey")
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TrinkBody"]
 shape = SubResource("SegmentShape2D_5o5aj")
+disabled = true
 
 [node name="RightSlot" type="Area2D" parent="."]
 position = Vector2(240, -120)
