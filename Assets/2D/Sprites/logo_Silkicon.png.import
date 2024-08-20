@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://c4xi320jbv6pq"
+path="res://.godot/imported/logo_Silkicon.png-6a6b7b022bb751c05ff3d0ebca233b3e.image"
+
+[deps]
+
+source_file="res://Assets/2D/Sprites/logo_Silkicon.png"
+dest_files=["res://.godot/imported/logo_Silkicon.png-6a6b7b022bb751c05ff3d0ebca233b3e.image"]
+
+[params]
+
