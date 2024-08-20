@@ -18,7 +18,7 @@ b = Vector2(-200, 120)
 [sub_resource type="CircleShape2D" id="CircleShape2D_4je2n"]
 radius = 115.0
 
-[node name="BlankTrink" type="Node2D"]
+[node name="BlankTrink" type="Node2D" groups=["trink"]]
 script = ExtResource("1_8gfh6")
 
 [node name="TrinkImage" type="Sprite2D" parent="."]
@@ -76,3 +76,6 @@ rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownSlot"]
 shape = SubResource("CircleShape2D_4je2n")
+
+[connection signal="area_entered" from="RightSlot" to="." method="_on_right_slot_area_entered"]
+[connection signal="area_entered" from="LeftSlot" to="." method="_on_left_slot_area_entered"]

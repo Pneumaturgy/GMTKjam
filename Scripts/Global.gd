@@ -1,4 +1,10 @@
 extends Node
+
+
+signal new_trink
+signal connected
+#signal connect_to(area,slot)
+
 const SAVE_PATH = "user://GMTKjam.save"
 const PROGRESS_PATH = "user://GMTKjam_progress.save"
 const PASSWORD = "is_password"
@@ -15,8 +21,8 @@ var index = 0
 
 var all_trinks = {
 	"res://Scenes/Trinks/BlankTrink.tscn" : 50.0,
-	"res://Scenes/Trinks/ShieldTrink.tscn" : 23.0,
-	"res://Scenes/Trinks/SpikeTrink.tscn" : 10.0
+	"res://Scenes/Trinks/ShieldTrink.tscn" : 15.0,
+	"res://Scenes/Trinks/SpikeTrink.tscn" : 30.0
 }
 
 
