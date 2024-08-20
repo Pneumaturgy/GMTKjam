@@ -36,6 +36,9 @@ func _input(event):
 		target_rotation = wrapf(target_rotation, 0, 360) # Wrap the rotation between 0 and 360 degrees
 
 func _physics_process(delta):
+	
+	
+	
 	get_input()
 	move_and_slide()
 	
@@ -46,11 +49,12 @@ func _physics_process(delta):
 	
 	
 	for slot in [right_slot, left_slot, down_slot]:
-		if slot.get_child_count() > 1:
+		if slot and slot.get_child_count() > 1:
 			var trink = slot.get_child(1)
 			trink.global_position = trink.global_position.lerp(slot.global_position, trink_move_speed * delta)
 			trink.global_rotation = lerp_angle(trink.global_rotation, slot.global_rotation, trink_rotation_speed * delta)
-
+		else:
+			slot.set_deferred("monitoring",true)
 
 func _on_right_slot_area_entered(area):
 	new_child(area,right_slot)
@@ -67,22 +71,45 @@ func _on_down_slot_area_entered(area):
 
 func new_child(area,slot):
 	var target_trink
-	if area.get_children().size()>1:
-		target_trink = area.get_child(1)
-	elif target_trink == null:
+	#print("we got: ",area)
+	if target_trink == null:
 		target_trink = area.get_parent()
+		#print(target_trink, " is a base trink")
+		if target_trink is not Trink:
+			print('Not Trink')
+	#if area.get_children().size()>=2:
+		#target_trink = area.get_child(1)
+		#print(target_trink, " is a normal trink")
+	
+	
+	#if target_trink is CollisionShape2D:
+		#target_trink = area.get_parent().get_parent()
+		#print(target_trink, " is a hazard trink")
+	#if target_trink is Area2D:
+		#target_trink = area.get_parent()
+		#print(target_trink, " is a ? trink")
+	#if target_trink == Node2D:
+	#print(target_trink)
+	#if target_trink != Player:
 		
-	Global.connected.emit()
-	if target_trink != Player:
-		if target_trink.down_slot != null:
-			target_trink.down_slot.queue_free()
+	if "down_slot" in target_trink and target_trink.down_slot != null:
+		target_trink.down_slot.queue_free()
+	if !target_trink is CollisionShape2D:
 		target_trink.call_deferred("reparent",slot)
-		target_trink.belongs_to_player = true
-		#slot.set_deferred("monitoring",false)
-			#if parent_trink:
+		if "belongs_to_player" in target_trink:
+			target_trink.belongs_to_player = true
 		if target_trink.right_slot != null:
 			target_trink.right_slot.set_deferred("monitoring",false)
 		if target_trink.left_slot != null:
 			target_trink.left_slot.set_deferred("monitoring",false)
-		if target_trink.down_slot != null:
-			target_trink.down_slot.set_deferred("monitoring",false)
+		slot.set_deferred("monitoring",false)
+		#if "down_slot" in target_trink:
+			#target_trink.down_slot.set_deferred("monitoring",false)
+		#if target_trink.right_slot != null:
+			#target_trink.right_slot.set_deferred("monitoring",false)
+		#if target_trink.left_slot != null:
+			#target_trink.left_slot.set_deferred("monitoring",false)
+		#if target_trink.down_slot != null:
+			#target_trink.down_slot.set_deferred("monitoring",false)
+		Global.connected.emit()
+#print(target_trink)

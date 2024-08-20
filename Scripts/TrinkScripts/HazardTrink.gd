@@ -7,13 +7,19 @@ func _ready():
 	no_spawn_growth_factor = 10
 	super._ready()
 	#print("hazard", trink_body.monitoring)
-	get_parent().monitorable = false
-	get_parent().monitoring = false
-	#get_parent().call_deferred("monitorable",false)
+	#get_parent().monitorable = false
+	#get_parent().monitoring = false
 
 
 func _on_detection_slot_area_entered(area):
-	#print("getting: ", area.get_parent())
-	#print('yest')
-	var new_parent = area.get_parent()
-	new_parent.queue_free()
+	print(area)
+	var target_trink
+	if area is Area2D:
+		target_trink = area.get_parent()
+	print(target_trink)
+	#print(new_parent)
+	#if area.get_children().size() >= 2:
+	if target_trink is Trink:
+		target_trink.queue_free()
+	else:
+		print('yes')
