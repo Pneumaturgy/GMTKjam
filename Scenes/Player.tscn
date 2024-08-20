@@ -8,6 +8,7 @@ radius = 115.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yktyi")
+speed = 1500
 rotation_speed = 480
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
